@@ -322,6 +322,33 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
 
 	private void subset(Node<T> current, T min, T max, List<T> subset) {
 		// TODO
+
+		if(current == null)
+		{
+			return;
+		}
+
+		int comparison1 = current.element.compareTo(min);
+		int comparison2 = current.element.compareTo(max);
+
+		if (comparison1 >= 0 && comparison2 < 0){
+			subset.add(current.element);
+		}
+
+		//optimization: only travel down subtree that is between our numbers
+
+		if (comparison1>=0)
+		{
+			subset(current.left, min, max, subset);
+		}
+
+		if (comparison2 < 0)
+		{
+			subset(current.right, min, max, subset);
+		}
+
+		subset(current.left, min, max, subset);
+		subset(current.right, min, max, subset);
 	}
 
 	@Override
