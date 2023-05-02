@@ -294,6 +294,18 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
 		// Hint: https://stackoverflow.com/a/8964370
 	}
 
+	public List<T> subset(T min, T max) {
+		List<T> subset = new ArrayList<>();
+
+		subset(root, min, max, subset);
+
+		return subset;
+	}
+
+	private void subset(Node<T> current, T min, T max, List<T> subset) {
+		// TODO
+	}
+
 	@Override
 	public void reset() {
 
