@@ -210,4 +210,67 @@ public class TreeSetTest {
 
 		assertEquals(output, outContent.toString());
 	}
+
+	@Test
+	public void testSubset1() {
+		List<Integer> subset = tree4.subset(3, 6);
+
+		assertTrue(subset.contains(3));
+		assertTrue(subset.contains(4));
+		assertTrue(subset.contains(5));
+
+		assertFalse(subset.contains(1));
+		assertFalse(subset.contains(2));
+		assertFalse(subset.contains(6));
+		assertFalse(subset.contains(7));
+		assertFalse(subset.contains(8));
+		assertFalse(subset.contains(9));
+	}
+
+	@Test
+	public void testSubset2() {
+		List<Integer> subset = tree4.subset(1, 9);
+
+		assertTrue(subset.contains(1));
+		assertTrue(subset.contains(2));
+		assertTrue(subset.contains(3));
+		assertTrue(subset.contains(4));
+		assertTrue(subset.contains(5));
+		assertTrue(subset.contains(6));
+		assertTrue(subset.contains(7));
+		assertTrue(subset.contains(8));
+
+		assertFalse(subset.contains(9));
+	}
+
+	@Test
+	public void testSubset3() {
+		List<Integer> subset = tree4.subset(5, 12);
+
+		assertTrue(subset.contains(5));
+		assertTrue(subset.contains(6));
+		assertTrue(subset.contains(7));
+		assertTrue(subset.contains(8));
+		assertTrue(subset.contains(9));
+
+		assertFalse(subset.contains(1));
+		assertFalse(subset.contains(2));
+		assertFalse(subset.contains(3));
+		assertFalse(subset.contains(4));
+	}
+
+	@Test
+	public void testSubset4() {
+		List<Integer> subset = tree4.subset(0, 1);
+
+		assertFalse(subset.contains(1));
+		assertFalse(subset.contains(2));
+		assertFalse(subset.contains(3));
+		assertFalse(subset.contains(4));
+		assertFalse(subset.contains(5));
+		assertFalse(subset.contains(6));
+		assertFalse(subset.contains(7));
+		assertFalse(subset.contains(8));
+		assertFalse(subset.contains(9));
+	}
 }
