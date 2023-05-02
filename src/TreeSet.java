@@ -231,8 +231,12 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
 		return elements;
 	}
 
-	private void toListPreOrder(Node<T> current, List<T> elements) {
+	private void toListPreOrder(Node<T> current, List<T> elements)
+	{
 		// TODO
+
+
+
 	}
 
 	public List<T> toListPostOrder() {
@@ -243,8 +247,22 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
 		return elements;
 	}
 
-	private void toListPostOrder(Node<T> current, List<T> elements) {
+	private void toListPostOrder(Node<T> current, List<T> elements)
+	{
 		// TODO
+		if(current == null)
+		{
+			return;
+		}
+
+		if(current.left == null && current.right == null)
+			elements.add(current.element);
+
+		toListPostOrder(current.left, elements);
+		toListPostOrder(current.right, elements);
+
+		elements.add(current.element);
+
 	}
 
 	public List<T> toListInOrder() {
